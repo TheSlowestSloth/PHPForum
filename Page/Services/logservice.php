@@ -8,8 +8,8 @@ if(isset($_SESSION['user'])){
 }
 
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
 
 if($username != "" && $password != ""){
     $connexion = connexion();
