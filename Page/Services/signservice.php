@@ -1,6 +1,11 @@
 <?php
 
-include('fonctionService.php');
+session_start();
+include('../model/fonction.php');
+
+if(isset($_SESSION['user'])){
+    header("location: ../../Index.php?page=forum");
+}
 
 $connexion = connexion();
 
@@ -54,11 +59,11 @@ if($flagpass == false){
 }
 
 if($flag == true OR $flagmail == true OR $flagpass == true){
-    header("location: ../SignUp.php?user=$flag&mail=$flagmail&pass=$flagpass");
+    header("location: ../../Index.php?page=login&user=$flag&mail=$flagmail&pass=$flagpass");
 }
 else{
     insert($username,$mail,$pass);
-    header("location: ../Login.php?Signup=true");
+    header("location: ../../Index.php?page=login&Signup=true");
 }
 
 ?>

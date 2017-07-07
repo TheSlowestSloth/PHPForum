@@ -13,7 +13,7 @@ function selectUserByUsername($username){
 
     $connexion = connexion();
 
-    $object = $connexion->prepare("SELECT * FROM forum.user WHERE username=:username");
+    $object = $connexion->prepare("SELECT username FROM forum.user WHERE username=:username");
     $object->execute(array("username" => $username));
     $users = $object->fetchAll(PDO::FETCH_ASSOC);
 
@@ -25,8 +25,20 @@ function selectUserByMail($username){
 
     $connexion = connexion();
 
-    $object = $connexion->prepare("SELECT * FROM forum.user WHERE mail=:mail");
+    $object = $connexion->prepare("SELECT mail FROM forum.user WHERE mail=:mail");
     $object->execute(array("mail" => $username));
+    $users = $object->fetchAll(PDO::FETCH_ASSOC);
+
+    return $users;
+
+}
+
+function selectPassByUsername($username){
+
+    $connexion = connexion();
+
+    $object = $connexion->prepare("SELECT uPassword FROM forum.user WHERE username=:username");
+    $object->execute(array('username'=>$username));
     $users = $object->fetchAll(PDO::FETCH_ASSOC);
 
     return $users;

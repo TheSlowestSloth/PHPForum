@@ -1,3 +1,9 @@
+<?php
+
+if(isset($_GET['page']))
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +15,7 @@
     <script type="text/javascript" src="JS/sign.js"></script>
 </head>
 <body>
-    <form action="Services/signservice.php" method="post">
+    <form action="Page/Services/signservice.php" method="post">
     
         <label>Username</label><br>
         <input type="text" name="username"><br>
@@ -20,7 +26,7 @@
         <label>Email</label><br>
         <input type="text" name="mail"><br>
         <input type="submit" value="Sign Up"><br>
-        <a href="SignUp.php?page=login">Login</a>
+        <a href="Index.php?page=login">Login</a>
         
     </form>
 </body>
