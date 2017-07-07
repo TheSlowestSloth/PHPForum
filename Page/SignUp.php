@@ -19,7 +19,8 @@
         <input type="password" name="cpassword"><br>
         <label>Email</label><br>
         <input type="text" name="mail"><br>
-        <input type="submit" value="Sign Up">
+        <input type="submit" value="Sign Up"><br>
+        <a href="SignUp.php?page=login">Login</a>
         
     </form>
 </body>

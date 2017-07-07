@@ -3,14 +3,28 @@
 include('fonctionService.php');
 
 $connexion = connexion();
-$users = selectUser();
+
 
 $username = $_POST['username'];
 $pass = $_POST['password'];
 $cpass = $_POST['cpassword'];
 $mail = $_POST['mail'];
-$flag = in_array($username, $users);
-$flagmail = in_array($mail, $users);
+
+
+$user = selectUserByUsername($username);
+$email = selectUserByMail($mail);
+
+
+if(empty($user)){
+    $flag = false;
+}
+else{
+    $flag = true;
+}
+
+if(empty($email)){
+    $flagmail = false;
+}
 
 if($flagmail == false){
     if(preg_match("/@.*\./", $mail)):
