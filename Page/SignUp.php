@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SignUp</title>
     <script type="text/javascript" src="JS/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="JS/sign.js"></script>
 </head>
 <body>
     <form action="Services/signservice.php" method="post">
