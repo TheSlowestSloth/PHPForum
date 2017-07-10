@@ -4,12 +4,8 @@ session_start();
 include('../model/fonction.php');
 
 if(isset($_SESSION['user'])){
-    header("location: ../../Index.php?page=forum");
+    header("location: ../Index.php?page=forum");
 }
-
-/* Alfonso: on a pas besoin de la connexion ici */
-$connexion = connexion();
-
 
 $username = $_POST['username'];
 $pass = $_POST['password'];
@@ -77,11 +73,11 @@ if($flagpass == false){
 }
 
 if($flag == true OR $flagmail == true OR $flagpass == true){
-    header("location: ../../Index.php?page=login&user=$flag&mail=$flagmail&pass=$flagpass");
+    header("location: ../Index.php?page=signup&user=$flag&mail=$flagmail&pass=$flagpass");
 }
 else{
     insert($username,$mail,$pass);
-    header("location: ../../Index.php?page=login&Signup=true");
+    header("location: ../Index.php?page=login&Signup=true");
 }
 
 ?>

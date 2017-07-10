@@ -11,23 +11,24 @@ if(isset($_GET['page']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SignUp</title>
-    <script type="text/javascript" src="JS/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="JS/sign.js"></script>
+    <link rel="stylesheet" type="text/css" href="Styles/style.css">
 </head>
 <body>
-    <form action="Page/Services/signservice.php" method="post">
-    
-        <label>Username</label><br>
-        <input type="text" name="username"><br>
-        <label>Password</label><br>
-        <input type="password" name="password"><br>
-        <label>Confirm Password</label><br>
-        <input type="password" name="cpassword"><br>
-        <label>Email</label><br>
-        <input type="text" name="mail"><br>
-        <input type="submit" value="Sign Up"><br>
-        <a href="Index.php?page=login">Login</a>
+    <section id="sectionSign">
+        <form action="Services/signservice.php" method="post" id="form2">
         
-    </form>
+            <label>Username</label><br>
+            <input type="text" name="username" class="champs"><br>
+            <label>Password</label><br>
+            <input type="password" name="password" class="champs"><br>
+            <label>Confirm Password</label><br>
+            <input type="password" name="cpassword" class="champs"><br>
+            <label>Email</label><br>
+            <input type="text" name="mail" class="champs"><br>
+            <input type="submit" value="Sign Up" class="button" id="submit"><br>
+            <a href="Index.php?page=login">Login</a>
+            
+        </form>
+    </section>
 </body>
 </html>
