@@ -9,10 +9,6 @@ else{
     $page = 'login';
 }
 
-if(isset($_SESSION['user']) && $page!='forum'){
-    $page = 'forum';
-}
-
 switch($page){
 
     case 'login':
@@ -25,6 +21,10 @@ switch($page){
 
     case 'forum':
     include("forum.php");
+    break;
+
+    case 'profil':
+    include("profil.php");
     break;
 
 }

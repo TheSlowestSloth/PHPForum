@@ -25,6 +25,18 @@ else{
         <h1>Hello <?php echo $username ?></h1>
         <input type="submit" value="Déconnexion" class="button" id="submit">
     </form>
+    <button  style="
+    height: 35px;
+    font-size: 25px;
+    width: 200px;
+    border: 1px solid black;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgb(250, 250, 250);">
+    <a href="Index.php?page=forum">
+        Forum
+    </a>
+    </button>
     <br>
     <hr>
     <br>

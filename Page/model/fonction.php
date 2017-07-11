@@ -149,4 +149,16 @@ function DisplayTab($user, $user2, $user3){
 
 }
 
+function selectProfilByUser($username){
+
+    $connexion = connexion();
+
+    $object = $connexion->prepare("SELECT * FROM forum.user WHERE username=:username");
+    $object->execute(array('username'=>$username));
+    $users = $object->fetchAll(PDO::FETCH_ASSOC);
+
+    return $users;
+
+}
+
 ?>

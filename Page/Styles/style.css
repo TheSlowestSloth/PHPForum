@@ -15,13 +15,20 @@ form input.champs{
     margin: 2px;
 }
 
-#submit{
+#submit, #submit2{
     height: 35px;
-    font-size: 25px;;
+    font-size: 25px;
+    width: 200px;
     border: 1px solid black;
     margin: 5px;
     border-radius: 5px;
     background-color: rgb(250, 250, 250);
+}
+
+#p1{
+    font-size: 25px;
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 section{
@@ -97,4 +104,23 @@ hr{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     margin: 50px 10%;
+}
+
+#cadreProfil{
+    border: 2px solid black;
+    height: 40%;
+    width: 80%;
+    margin: 20px 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+.button{
+    height: 35px;
+        font-size: 25px;
+        width: 200px;
+        border: 1px solid black;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: rgb(250, 250, 250);
 }

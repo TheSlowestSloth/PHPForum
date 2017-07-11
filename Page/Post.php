@@ -28,9 +28,22 @@ $_SESSION['page'] = $page;
 </head>
 <body>
     <form action="Services/disconnectService.php" method="post" id="form3">
-        <h1>Hello <?php echo $username ?></h1>
         <input type="submit" value="Déconnexion" class="button" id="submit">
     </form>
+    <button class="button" style="">
+    
+    <a href="Index.php?page=forum">
+        Forum
+    </a>
+    </button>
+    <br>
+    <button class="button" style="">
+    <a href="Index.php?page=profil">
+        Profil
+    </a>
+    </button>
+    
+    
     <br>
     <hr>
     <br>

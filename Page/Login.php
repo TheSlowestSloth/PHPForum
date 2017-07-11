@@ -1,7 +1,8 @@
 <?php
 
-
-
+if(!empty($_SESSION['user'])){
+    header("location: Index.php?page=forum");
+}
 
 ?>
 

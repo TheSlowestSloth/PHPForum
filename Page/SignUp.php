@@ -1,6 +1,8 @@
 <?php
 
-if(isset($_GET['page']))
+if(!empty($_SESSION['user'])){
+    header("location: Index.php?page=forum");
+}
 
 ?>
 
