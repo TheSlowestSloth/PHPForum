@@ -27,6 +27,10 @@ switch($page){
     include("profil.php");
     break;
 
+    case 'users':
+    include("users.php");
+    break;
+
 }
 
 ?>

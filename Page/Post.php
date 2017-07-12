@@ -42,8 +42,12 @@ $_SESSION['page'] = $page;
         Profil
     </a>
     </button>
-    
-    
+    <br>
+    <button  class="button">
+    <a href="Index.php?page=users">
+        Messages
+    </a>
+    </button>
     <br>
     <hr>
     <br>

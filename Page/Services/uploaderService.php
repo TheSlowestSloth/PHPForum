@@ -1,44 +1,47 @@
 <?php
 
-$target_path = "uploads/";
+session_start();
+include("../model/fonction.php");
+$username = $_SESSION['user'];
 
-$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
+$uploadOk = 1;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-// if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
-//     echo "le fichier ".  basename( $_FILES['uploadedfile']['name']).
-//         " a été téléchargé";
-// } 
-
-// else {
-//     header("location: Index.php?page=profil");
-// }
-
-if (isset($_FILES['uploadedfile']) AND $_FILES['uploadedfile']['error'] == 0)
-{
-    
-    if ($_FILES['uploadedfile']['size'] <= 5000000)
-    {
-        $infosfichier = pathinfo($_FILES['uploadedfile']['name']);
-
-        $extension_upload = $infosfichier['extension'];
-        $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
-        
-        if (in_array($extension_upload, $extensions_autorisees))
-        {
-            $newName = hash('sha1',$_FILES['uploadedfile']['name']).'.'.$extension_upload;
-            move_uploaded_file($_FILES['uploadedfile']['tmp_name'], 'uploads/' . basename($newName));
-            header("location: ../Index.php?page=profil");
-        }
-
-    }
-    
-    else{
-        header("location: ../Index.php?page=profil");
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["uploadedfile"]["tmp_name"]);
+    if($check !== false) {
+        $uploadOk = 1;
+    } else {
+        $uploadOk = 0;
     }
 }
 
-else{
-    header("location: ../Index.php?page=profil");
+if (file_exists($target_file)) {
+    $file = "Services/$target_file";
+    updateIMG($file, $username);
+    $uploadOk = 0;
 }
 
+if ($_FILES["uploadedfile"]["size"] > 500000) {
+    $uploadOk = 0;
+}
+
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+    $uploadOk = 0;
+}
+
+if ($uploadOk == 0) {
+    header("location: ../Index.php?page=profil&upload=false");
+} else {
+    if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $target_file)) {
+        $file = "Services/$target_file";
+        updateIMG($file, $username);
+        header("location: ../Index.php?page=profil&upload=true");
+    } else {
+        header("location: ../Index.php?page=profil&upload=false");
+    }
+}
 ?>

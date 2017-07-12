@@ -3,6 +3,7 @@
 include("model/fonction.php");
 $username = $_SESSION['user'];
 $profil = selectProfilByUser($username);
+$img = $profil[0]['image'];
 
 ?>
 
@@ -17,19 +18,17 @@ $profil = selectProfilByUser($username);
 </head>
 <body>
     <form action="Services/disconnectService.php" method="post" id="form6">
-        <input type="submit" value="Déconnexion" class="button" style="
-        ">
+        <input type="submit" value="Déconnexion" class="button">
     </form>
-    <button class="button" style="">
+    <button class="button">
     <a href="Index.php?page=forum">
         Forum
     </a>
     </button>
     <br>
-    <button  class="button" style="
-    ">
-    <a href="Index.php?page=profil">
-        Profil
+    <button  class="button">
+    <a href="Index.php?page=users">
+        Messages
     </a>
     </button>
     <br>
@@ -43,15 +42,16 @@ $profil = selectProfilByUser($username);
             <?php echo $profil[0]['email'] ?><br><br>
             <p>Image:</p><br>
             <?php 
-            if($profil[0]['image'] == ""){
-                echo "<img scr='Styles/images/téléchargement.png' height='50' width='80'>";
+            if($img == ""){
+                echo "<img src='Styles/images/téléchargement.png' height='200' width='200'>";
             }
             else{
-                echo $profil[0]['image'];
+                echo("<img src='$img' height='200' width='200'>");
             }
              ?><br><br>
         </div>
         <form enctype="multipart/form-data" action="Services/uploaderService.php" method="post">
+        
 
             Choisissez un fichier:
             <br>

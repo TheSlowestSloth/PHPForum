@@ -25,17 +25,22 @@ else{
         <h1>Hello <?php echo $username ?></h1>
         <input type="submit" value="Déconnexion" class="button" id="submit">
     </form>
-    <button  style="
-    height: 35px;
-    font-size: 25px;
-    width: 200px;
-    border: 1px solid black;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: rgb(250, 250, 250);">
-    <a href="Index.php?page=forum">
-        Forum
-    </a>
+    <button class="button">
+        <a href="Index.php?page=forum">
+            Forum
+        </a>
+    </button>
+    <br>
+    <button  class="button">
+        <a href="Index.php?page=profil">
+            Profil
+        </a>
+    </button>
+    <br>
+    <button  class="button">
+        <a href="Index.php?page=users">
+            Messages
+        </a>
     </button>
     <br>
     <hr>
@@ -49,15 +54,15 @@ else{
             </div>
 
             <a href="Post.php?page=Pierre">
-            <div class="sousDomaine1" id="Cours1">
-                <p>Cours Pierre</p>
-            </div>
+                <div class="sousDomaine1" id="Cours1">
+                    <p>Cours Pierre</p>
+                </div>
             </a>
 
             <a href="Post.php?page=Alphonso">
-            <div class="sousDomaine1" id="Cours2">
-                <p>Cours Alphonso</p>
-            </div>
+                <div class="sousDomaine1" id="Cours2">
+                    <p>Cours Alphonso</p>
+                </div>
             </a>
 
         </section>
@@ -69,15 +74,15 @@ else{
             </div>
 
             <a href="Post.php?page=snacks">
-            <div class="sousDomaine2" id="divers1">
-                <p>Les bons snacks du coin</p>
-            </div>
+                <div class="sousDomaine2" id="divers1">
+                    <p>Les bons snacks du coin</p>
+                </div>
             </a>
 
             <a href="Post.php?page=divers">
-            <div class="sousDomaine2" id="divers2">
-                <p>Discussion générale</p>
-            </div>
+                <div class="sousDomaine2" id="divers2">
+                    <p>Discussion générale</p>
+                </div>
             </a>
 
         </section>

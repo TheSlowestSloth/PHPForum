@@ -161,4 +161,79 @@ function selectProfilByUser($username){
 
 }
 
+function updateIMG($file, $username){
+
+    $connexion = connexion();
+
+    $pdo = $connexion->prepare('UPDATE forum.user SET image=:image WHERE username=:username');
+    $pdo->execute(array('image'=>$file,'username'=>$username));
+
+}
+
+function selectUsers(){
+
+    $connexion = connexion();
+
+    $object = $connexion->prepare("SELECT username FROM forum.user");
+    $object->execute(array());
+    $users = $object->fetchAll(PDO::FETCH_ASSOC);
+
+    return $users;
+
+}
+
+function DisplayUsers($users){
+
+    for($i = 0; $i < count($users); $i++){
+        $val = $users[$i]['username'];
+        echo "<option value='$val'> $val </option>";
+    }
+
+}
+
+function insertMessage($user, $sender, $message){
+
+    $connexion = connexion();
+
+    $pdo = $connexion->prepare('INSERT INTO forum.message SET username=:user, sender=:sender, msg=:message, datecreate=:datecreate');
+    $pdo->execute(array(
+        'user'=>$user,
+        'sender'=>$sender,
+        'message'=>$message,
+        'datecreate'=>date("Y-m-d H:i:s")));
+
+}
+
+function selectMessageByUser($user){
+    
+    $connexion = connexion();
+
+    $object = $connexion->prepare("SELECT * FROM forum.message WHERE username=:username OR sender=:sender");
+    $object->execute(array(
+        'username'=>$user,
+        'sender'=>$user
+        ));
+    $users = $object->fetchAll(PDO::FETCH_ASSOC);
+
+    return $users;
+
+}
+
+function DisplayMSG($user){
+
+    for($i = 0; $i < count($user); $i++){
+            echo "<div>";
+            echo $user[$i]['datecreate'];
+            echo " ";
+            echo $user[$i]['sender'];
+            echo " ";
+            echo $user[$i]['username'];
+            echo "<br><br>";
+            echo $user[$i]['msg'];
+            echo "</div>";
+            echo "<br><br>";
+    }
+
+}
+
 ?>
