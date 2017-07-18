@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Alfonso: tout ce code en haut de la page doit se trouver dans l'index.php c'est à dire le controleur
+ * C'est pour ça qu'il est sensé être le contrôleur.
+ * Tu aurais dû aussi mettre tous ces templates dans un dossier views. ou templates.
+ */
+
 if(!empty($_SESSION['user'])){
     $username = $_SESSION['user'];
 }
